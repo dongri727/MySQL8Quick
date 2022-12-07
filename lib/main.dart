@@ -92,117 +92,119 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Column(
-        children: [
-          Expanded(
-          flex: 2,
-            child: Column(
-              children: [
-                Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(5.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(color: Colors.brown),
-                            ),
-                            child: const Padding(
-                              padding: EdgeInsets.all(13.0),
-                              child: Text(
-                                'Your account & query:',
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Format(
-                              hintText: 'host',
-                              onChanged: (text) {
-                                myHost = text;
-                              }
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Format(
-                              hintText: 'user name',
-                              onChanged: (text) {
-                                myUserName = text;
-                              }
-                          ),
-                        ),]),
-                  ),
-                      Expanded(
-                        flex: 1,
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: Obscure(
-                                  hintText: 'password',
-                                  onChanged: (text) {
-                                    myPassword = text;
-                                  }
-                              ),
-                            ),
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Format(
-                              hintText: 'database',
-                              onChanged: (text) {
-                                myDatabase = text;
-                              }
-                          ),
-                        ),
-                          Padding(
-                          padding: const EdgeInsets.all(5.0),
-                            child: Format(
-                              hintText: 'port',
-                              onChanged: (text) {
-                                myPort = text as int;
-                              }
-                            ),
-                          ),
-                        ]),
-                      ),
-                ]),
-                Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Format(
-                        hintText: 'ex: SELECT * FROM myTable',
-                        onChanged: (text) {
-                          myQuery = text;
-                        }
-                    ),
-                ),
-          ]),
-          ),
+          children: [
             Expanded(
-              flex: 5,
-              child: SingleChildScrollView(
-                child:
-                Column(children: displayList.map<Widget>((data) {
-                  return Card(
-                    child: ListTile(
-                      leading: Text(data['field0']?? ""),
-                      title: Text(data['field1']?? ""),
-                      subtitle: Text(data['field2']?? ""),
-                      trailing: Text(data['field3']?? ""),
-                    )
-                  );
-                }).toList()
-                ),
-              ))
-          ]),
+            flex: 2,
+              child: Column(
+                children: [
+                  Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.all(5.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(color: Colors.brown),
+                              ),
+                              child: const Padding(
+                                padding: EdgeInsets.all(13.0),
+                                child: Text(
+                                  'account & query:',
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Format(
+                                hintText: 'host',
+                                onChanged: (text) {
+                                  myHost = text;
+                                }
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Format(
+                                hintText: 'user name',
+                                onChanged: (text) {
+                                  myUserName = text;
+                                }
+                            ),
+                          ),]),
+                    ),
+                        Expanded(
+                          flex: 1,
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Obscure(
+                                    hintText: 'password',
+                                    onChanged: (text) {
+                                      myPassword = text;
+                                    }
+                                ),
+                              ),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Format(
+                                hintText: 'database',
+                                onChanged: (text) {
+                                  myDatabase = text;
+                                }
+                            ),
+                          ),
+                            Padding(
+                            padding: const EdgeInsets.all(5.0),
+                              child: Format(
+                                hintText: 'port',
+                                onChanged: (text) {
+                                  myPort = text as int;
+                                }
+                              ),
+                            ),
+                          ]),
+                        ),
+                  ]),
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Format(
+                          hintText: 'ex: SELECT * FROM myTable',
+                          onChanged: (text) {
+                            myQuery = text;
+                          }
+                      ),
+                  ),
+            ]),
+            ),
+              Expanded(
+                flex: 3,
+                child: SingleChildScrollView(
+                  child:
+                  Column(children: displayList.map<Widget>((data) {
+                    return Card(
+                      child: ListTile(
+                        leading: Text(data['field0']?? ""),
+                        title: Text(data['field1']?? ""),
+                        subtitle: Text(data['field2']?? ""),
+                        trailing: Text(data['field3']?? ""),
+                      )
+                    );
+                  }).toList()
+                  ),
+                ))
+            ]),
+
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _operate,
         tooltip: 'Go!',

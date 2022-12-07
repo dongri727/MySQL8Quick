@@ -18,7 +18,7 @@ class Format extends StatelessWidget {
         contentPadding: const EdgeInsets.all(5.0),
         hintText: hintText,
         hintStyle: const TextStyle(
-            fontSize: 14,
+            fontSize: 12,
             color: Colors.brown),
         fillColor: Colors.amber[100],
         filled: true,
@@ -62,7 +62,7 @@ class Obscure extends StatelessWidget {
         contentPadding: const EdgeInsets.all(5.0),
         hintText: hintText,
         hintStyle: const TextStyle(
-            fontSize: 14,
+            fontSize: 12,
             color: Colors.brown),
         fillColor: Colors.amber[100],
         filled: true,

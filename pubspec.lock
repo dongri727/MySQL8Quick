@@ -115,7 +115,7 @@ packages:
       name: mysql_client
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.26"
+    version: "0.0.27"
   path:
     dependency: transitive
     description:
